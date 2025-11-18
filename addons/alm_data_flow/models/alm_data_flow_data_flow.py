@@ -14,8 +14,8 @@ class AlmDataFlow(models.Model):
 
     application_ids = fields.Many2many(
         'alm.configurable.unit',
-        string='Applications',
-        help="The applications involved in this data flow.",
+        string='Configurable Unit',
+        help="The Configurable Unit that this data flow involved in this data flow.",
         tracking=True,
         required=True,
     )

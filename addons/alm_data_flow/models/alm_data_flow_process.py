@@ -14,9 +14,9 @@ class AlmProcess(models.Model):
 
     application_id = fields.Many2one(
         'alm.configurable.unit',
-        string='Application',
+        string='Configurable Unit',
         required=True,
-        help="The application this process belongs to.",
+        help="The Configurable Unit that this process belongs to.",
         tracking=True,
     )
 
