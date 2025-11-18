@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- List View -->
+    <record id="view_alm_bug_list" model="ir.ui.view">
+        <field name="name">alm.bug.list</field>
+        <field name="model">alm.bug</field>
+        <field name="arch" type="xml">
+            <list string="Bugs">
+                <field name="bug_number"/>
+                <field name="name"/>
+                <field name="state" widget="badge" decoration-success="state == 'fixed'" decoration-warning="state == 'confirmed'" decoration-info="state == 'new'" decoration-danger="state == 'rejected'"/>
+                <field name="priority" widget="priority"/>
+                <field name="user_id"/>
+                <field name="detection_date"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_alm_bug_form" model="ir.ui.view">
+        <field name="name">alm.bug.form</field>
+        <field name="model">alm.bug</field>
+        <field name="arch" type="xml">
+            <form string="Bug">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="new,confirmed,fixed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="bug_number" string="Bug ID" readonly="1"/></h1>
+                        <h1><field name="name" placeholder="Short description of the bug..."/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="priority" widget="priority"/>
+                            <field name="detection_method"/>
+                        </group>
+                        <group>
+                            <field name="detection_date"/>
+                            <field name="fix_date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Details">
+                            <field name="description"/>
+                        </page>
+                        <page string="Affected Versions">
+                            <field name="reported_in_version_ids"/>
+                        </page>
+                        <page string="Fixed In Versions">
+                            <field name="fixed_in_version_ids"/>
+                        </page>
+                        <page string="Metadata">
+                            <field name="metadata_object_ids"/>
+                        </page>
+                        <page string="Fixing Tasks">
+                            <field name="task_ids"/>
+                        </page>
+                        <page string="Test Info">
+                            <group>
+                                <field name="test_name"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_alm_bug_search" model="ir.ui.view">
+        <field name="name">alm.bug.search</field>
+        <field name="model">alm.bug</field>
+        <field name="arch" type="xml">
+            <search string="Search Bugs">
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="state"/>
+                <separator/>
+                <filter string="My Bugs" name="my_bugs" domain="[('user_id', '=', uid)]"/>
+                <separator/>
+                <filter string="New" name="state_new" domain="[('state', '=', 'new')]"/>
+                <filter string="Confirmed" name="state_confirmed" domain="[('state', '=', 'confirmed')]"/>
+                <filter string="Fixed" name="state_fixed" domain="[('state', '=', 'fixed')]"/>
+                <separator/>
+                <filter string="Responsible" name="group_by_user" context="{'group_by': 'user_id'}"/>
+                <filter string="State" name="group_by_state" context="{'group_by': 'state'}"/>
+                <filter string="Priority" name="group_by_priority" context="{'group_by': 'priority'}"/>
+            </search>
+        </field>
+    </record>
+</odoo>

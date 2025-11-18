@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="alm_project.view_task_form_inherit_alm" model="ir.ui.view">
+        <field name="name">project.task.form.inherit.alm</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='project_id']" position="after">
+                <field name="configurable_unit_id" 
+                    placeholder="Select a configurable unit from project"/>
+                <field name="configurable_unit_version_id"
+                      placeholder="Select a version for the chosen configurable unit"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

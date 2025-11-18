@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_alm_data_flow_user,alm.data.flow user,model_alm_data_flow,base.group_user,1,1,1,1
+access_alm_process_user,alm.process user,model_alm_process,base.group_user,1,1,1,1
+access_alm_process_function_user,alm.process.function user,model_alm_process_function,base.group_user,1,1,1,1
+access_alm_data_flow_process_node_user,alm.data.flow.process.node user,model_alm_data_flow_process_node,base.group_user,1,1,1,1
+access_alm_data_flow_process_edge_user,alm.data.flow.process.edge user,model_alm_data_flow_process_edge,base.group_user,1,1,1,1
+access_alm_data_flow_data_flow_node_user,alm.data.flow.data.flow.node user,model_alm_data_flow_data_flow_node,base.group_user,1,1,1,1
+access_alm_data_flow_data_flow_edge_user,alm.data.flow.data.flow.edge user,model_alm_data_flow_data_flow_edge,base.group_user,1,1,1,1
+access_alm_data_flow_integration_user,alm.data.flow.integration user,model_alm_data_flow_integration,base.group_user,1,1,1,1
+access_alm_data_flow_field_map_user,alm.data.flow.field.map user,model_alm_data_flow_field_map,base.group_user,1,1,1,1

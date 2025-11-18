@@ -1,0 +1,8 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+    <rect width="128" height="128" rx="16" fill="#FDFEFE"/>
+    <g transform="translate(24, 24)" fill="none" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Stylized 'A' for ALM -->
+        <path d="M 0 80 L 40 0 L 80 80 Z" stroke="#85C1E9"/>
+        <line x1="20" y1="40" x2="60" y2="40" stroke="#FAD7A0"/>
+    </g>
+</svg>

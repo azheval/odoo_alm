@@ -1,0 +1,39 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+      - drawio
+    ports:
+      - "8069:8069"
+    volumes:
+      - odoo-web-data:/var/lib/odoo
+      - ./config:/etc/odoo
+      - ./addons:/mnt/extra-addons
+      - ./test-reports:/opt/odoo/test-reports
+    command:
+      - --dev=all
+      - --init=base
+    environment:
+      - PIP_BREAK_SYSTEM_PACKAGES=1
+      - DRAWIO_URL=http://drawio:8080
+  db:
+    image: postgres:16
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data
+  drawio:
+    image: jgraph/drawio
+    ports:
+      - "8080:8080"
+    environment:
+      - DRAWIO_SELF_CONTAINED=1
+      - DRAWIO_DISABLE_SPLASH=1
+volumes:
+  odoo-web-data:
+  odoo-db-data:

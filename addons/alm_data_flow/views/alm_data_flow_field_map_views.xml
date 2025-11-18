@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- List View for Data Flow Field Map -->
+    <record id="alm_data_flow_field_map_list_view" model="ir.ui.view">
+        <field name="name">alm.data.flow.field.map.list</field>
+        <field name="model">alm.data.flow.field.map</field>
+        <field name="arch" type="xml">
+            <list string="Field Mappings">
+                <field name="sequence" widget="handle"/>
+                <field name="name" invisible="1"/>
+                <field name="source_field_id"/>
+                <field name="target_field_id"/>
+                <field name="transformation_logic"/>
+                <field name="notes"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View for Data Flow Field Map -->
+    <record id="alm_data_flow_field_map_form_view" model="ir.ui.view">
+        <field name="name">alm.data.flow.field.map.form</field>
+        <field name="model">alm.data.flow.field.map</field>
+        <field name="arch" type="xml">
+            <form string="Field Mapping">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="integration_id" invisible="1"/>
+                            <field name="sequence"/>
+                            <field name="source_field_id"/>
+                        </group>
+                        <group>
+                            <field name="target_field_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Details">
+                            <group>
+                                <field name="transformation_logic"/>
+                                <field name="notes"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

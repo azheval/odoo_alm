@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- List View for Process Edge -->
+    <record id="view_alm_data_flow_process_edge_list" model="ir.ui.view">
+        <field name="name">alm_data_flow.process.edge.list</field>
+        <field name="model">alm_data_flow.process.edge</field>
+        <field name="arch" type="xml">
+            <list string="Process Edges">
+                <field name="process_id"/>
+                <field name="source_node_id"/>
+                <field name="target_node_id"/>
+                <field name="edge_type"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View for Process Edge -->
+    <record id="view_alm_data_flow_process_edge_form" model="ir.ui.view">
+        <field name="name">alm_data_flow.process.edge.form</field>
+        <field name="model">alm_data_flow.process.edge</field>
+        <field name="arch" type="xml">
+            <form string="Process Edge">
+                <sheet>
+                    <group>
+                        <field name="process_id"/>
+                        <field name="source_node_id"/>
+                        <field name="target_node_id"/>
+                        <field name="edge_type"/>
+                        <field name="condition_expression"/>
+                        <field name="is_default"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- List View for Version -->
+    <record id="alm_base.view_configurable_unit_version_list" model="ir.ui.view">
+        <field name="name">alm.configurable.unit.version.list</field>
+        <field name="model">alm.configurable.unit.version</field>
+        <field name="arch" type="xml">
+            <list string="Versions">
+                <field name="name"/>
+                <field name="unit_id"/>
+                <field name="unit_type" column_invisible="True"/>
+                <field name="state" widget="badge" decoration-success="state == 'published'" decoration-info="state == 'development'" decoration-muted="state == 'unsupported'"/>
+                <field name="publication_date"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View for Version -->
+    <record id="alm_base.view_configurable_unit_version_form" model="ir.ui.view">
+        <field name="name">alm.configurable.unit.version.form</field>
+        <field name="model">alm.configurable.unit.version</field>
+        <field name="arch" type="xml">
+            <form string="Version">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="unit_id"/>
+                        <field name="state" widget="radio"/>
+                        <field name="publication_date"/>
+                    </group>
+                    <notebook>
+                        <page string="Dependencies" name="dependencies">
+                            <field name="includes_ids" domain="[('id', '!=', id)]">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="unit_id"/>
+                                    <field name="state" widget="badge"/>
+                                    <field name="publication_date"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Used In" name="used_in">
+                            <field name="included_in_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="unit_id"/>
+                                    <field name="state" widget="badge"/>
+                                    <field name="publication_date"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+</odoo>

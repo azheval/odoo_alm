@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- List View for Attributes -->
+    <record id="alm_metadata_view_metadata_object_attribute_list" model="ir.ui.view">
+        <field name="name">alm.metadata.object.attribute.list</field>
+        <field name="model">alm.metadata.object.attribute</field>
+        <field name="arch" type="xml">
+            <list string="Attributes" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="technical_name"/>
+                <field name="type_id"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+</odoo>

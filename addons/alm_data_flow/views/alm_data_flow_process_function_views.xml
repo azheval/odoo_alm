@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- List View for Process Function -->
+    <record id="view_alm_process_function_list" model="ir.ui.view">
+        <field name="name">alm.process.function.list</field>
+        <field name="model">alm.process.function</field>
+        <field name="arch" type="xml">
+            <list string="Functions/Steps">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="process_id"/>
+                <field name="responsible_role_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View for Process Function -->
+    <record id="view_alm_process_function_form" model="ir.ui.view">
+        <field name="name">alm.process.function.form</field>
+        <field name="model">alm.process.function</field>
+        <field name="arch" type="xml">
+            <form string="Function/Step">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="process_id"/>
+                            <field name="sequence"/>
+                        </group>
+                        <group>
+                            <field name="responsible_role_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                        <page string="Metadata Inputs/Outputs">
+                            <group>
+                                <field name="input_metadata_object_ids" widget="many2many_tags"/>
+                                <field name="output_metadata_object_ids" widget="many2many_tags"/>
+                            </group>
+                        </page>
+                        <page string="Transformation Logic">
+                            <field name="transformation_logic"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for Process Function -->
+    <record id="action_alm_process_function" model="ir.actions.act_window">
+        <field name="name">Functions/Steps</field>
+        <field name="res_model">alm.process.function</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Define a new function or step within a process.
+            </p><p>
+                Functions describe granular actions, their inputs, outputs, and responsible roles.
+            </p>
+        </field>
+    </record>
+</odoo>

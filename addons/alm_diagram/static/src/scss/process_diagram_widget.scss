@@ -1,0 +1,24 @@
+.o_field_process_diagram {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    width: 100%;
+
+    .o_process_diagram_editor_container {
+        flex-grow: 1;
+        border: 1px solid #ccc;
+        position: relative;
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .o_process_diagram_buttons {
+        flex-shrink: 0;
+    }
+}

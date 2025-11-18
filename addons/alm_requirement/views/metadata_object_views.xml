@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="metadata_object_view_form_inherit_alm_requirement" model="ir.ui.view">
+        <field name="name">metadata.object.form.inherit.alm.requirement</field>
+        <field name="model">alm.metadata.object</field>
+        <field name="inherit_id" ref="alm_metadata.view_metadata_object_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='version_id']" position="after">
+                <field name="requirement_ids" widget="many2many_tags"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

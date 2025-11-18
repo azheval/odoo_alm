@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="drawio_editor_url_param" model="ir.config_parameter">
+            <field name="key">alm_diagram.drawio_editor_url</field>
+            <field name="value">http://localhost:8080/?embed=1&amp;ui=atlas&amp;spin=1&amp;proto=json&amp;configure=1</field>
+        </record>
+    </data>
+</odoo>

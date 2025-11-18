@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Sub-menu for Metadata under ALM -->
+    <menuitem 
+        id="alm_metadata.menu_metadata_root" 
+        name="Metadata" 
+        parent="alm_base.menu_root"
+        sequence="30"/>
+
+    <!-- Menu for Metadata Objects -->
+    <menuitem 
+        id="alm_metadata.menu_metadata_object" 
+        name="Objects"
+        parent="alm_metadata.menu_metadata_root" 
+        action="alm_metadata.action_metadata_object" 
+        sequence="10"/>
+
+    <!-- Menu for Metadata Object Types -->
+    <menuitem 
+        id="alm_metadata.menu_metadata_object_type" 
+        name="Object Types"
+        parent="alm_metadata.menu_metadata_root" 
+        action="alm_metadata.action_metadata_object_type" 
+        sequence="20"/>
+
+    <!-- Menu for Metadata Loader -->
+    <menuitem 
+        id="alm_metadata.menu_metadata_loader" 
+        name="Load Metadata"
+        parent="alm_metadata.menu_metadata_root" 
+        action="alm_metadata.action_metadata_loader" 
+        sequence="30"/>
+</odoo>

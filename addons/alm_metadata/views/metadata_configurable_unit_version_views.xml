@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="alm_metadata.view_configurable_unit_version_form_metadata" model="ir.ui.view">
+        <field name="name">alm.configurable.unit.version.form.metadata</field>
+        <field name="model">alm.configurable.unit.version</field>
+        <field name="inherit_id" ref="alm_base.view_configurable_unit_version_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Metadata Objects" name="metadata_objects">
+                    <field name="metadata_object_ids">
+                        <list>
+                            <field name="name"/>
+                            <field name="technical_name"/>
+                            <field name="type_id"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_alm_metadata_object_type,access.alm.metadata.object.type,model_alm_metadata_object_type,base.group_user,1,1,1,1
+access_alm_metadata_object,access.alm.metadata.object,model_alm_metadata_object,base.group_user,1,1,1,1
+access_alm_metadata_object_attribute,access.alm.metadata.object.attribute,model_alm_metadata_object_attribute,base.group_user,1,1,1,1
+access_metadata_loader_wizard,metadata.loader.wizard,model_metadata_loader_wizard,base.group_user,1,1,1,1

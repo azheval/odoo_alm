@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="menu_alm_data_flow_root_record" model="ir.ui.menu">
+        <field name="name">Data Flows</field>
+        <field name="parent_id" ref="alm_base.menu_root"/>
+        <field name="sequence">50</field>
+        <field name="web_icon">alm_data_flow,static/description/icon.svg</field>
+    </record>
+
+    <record id="menu_alm_data_flow_record" model="ir.ui.menu">
+        <field name="name">Data Flows</field>
+        <field name="parent_id" ref="alm_data_flow.menu_alm_data_flow_root_record"/>
+        <field name="action" ref="alm_data_flow.action_alm_data_flow"/>
+        <field name="sequence">10</field>
+    </record>
+
+    <record id="menu_alm_process_record" model="ir.ui.menu">
+        <field name="name">Processes</field>
+        <field name="parent_id" ref="alm_data_flow.menu_alm_data_flow_root_record"/>
+        <field name="action" ref="alm_data_flow.action_alm_process"/>
+        <field name="sequence">20</field>
+    </record>
+
+    <record id="alm_data_flow_integration_menu_item" model="ir.ui.menu">
+        <field name="name">Integrations</field>
+        <field name="parent_id" ref="alm_data_flow.menu_alm_data_flow_root_record"/>
+        <field name="action" ref="alm_data_flow.alm_data_flow_integration_action"/>
+        <field name="sequence">25</field>
+    </record>
+
+    <record id="menu_alm_process_function_record" model="ir.ui.menu">
+        <field name="name">Functions/Steps</field>
+        <field name="parent_id" ref="alm_data_flow.menu_alm_data_flow_root_record"/>
+        <field name="action" ref="alm_data_flow.action_alm_process_function"/>
+        <field name="sequence">30</field>
+    </record>
+</odoo>

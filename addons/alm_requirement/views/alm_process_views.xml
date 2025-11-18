@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="alm_process_view_form_inherit_alm_requirement" model="ir.ui.view">
+        <field name="name">alm.process.form.inherit.alm.requirement</field>
+        <field name="model">alm.process</field>
+        <field name="inherit_id" ref="alm_data_flow.view_alm_process_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='application_id']" position="after">
+                <field name="requirement_ids" widget="many2many_tags"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

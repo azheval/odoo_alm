@@ -1,0 +1,40 @@
+// This file is used to override the default Odoo variables and apply the custom theme.
+
+// 1. Define the custom color palette
+$alm-primary: #85C1E9;
+$alm-secondary: #FAD7A0;
+$alm-bg: #FDFEFE;
+$alm-text: #34495E;
+
+// 2. Override Odoo's default community and brand variables
+// This is the most effective way to change the core color scheme.
+$o-community-color: $alm-primary;
+$o-brand-primary: $alm-primary;
+$o-main-software-color: $alm-primary;
+
+// 3. Override body background and text color
+$body-bg: $alm-bg;
+$body-color: $alm-text;
+
+// 4. Odoo's original variables are inherited automatically from the asset bundle.
+// No import is needed here.
+
+// 5. Apply rounded corners to major components
+// We use !important here to ensure our style takes precedence if there are conflicting rules.
+.o_form_view, 
+.modal-content, 
+.o_list_view,
+.o_kanban_view .o_kanban_record {
+    border-radius: 12px !important;
+}
+
+// 6. Add some extra touches for a more complete theme
+.o_main_navbar {
+    background-color: $o-brand-primary !important;
+    border-bottom: 1px solid darken($o-brand-primary, 5%);
+}
+
+// Softer box-shadow for cards
+.o_kanban_record, .o_form_sheet {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}

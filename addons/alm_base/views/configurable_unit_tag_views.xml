@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- List View for Tags -->
+    <record id="alm_base.view_configurable_unit_tag_list" model="ir.ui.view">
+        <field name="name">alm.configurable.unit.tag.list</field>
+        <field name="model">alm.configurable.unit.tag</field>
+        <field name="arch" type="xml">
+            <list string="Tags">
+                <field name="name" readonly="0"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="alm_base.view_configurable_unit_tag_form" model="ir.ui.view">
+        <field name="name">alm.configurable.unit.tag.form</field>
+        <field name="model">alm.configurable.unit.tag</field>
+        <field name="arch" type="xml">
+            <form string="Tag">
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                        <field name="color" widget="color_picker" options="{'color_field': 'color'}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="alm_base.action_configurable_unit_tag" model="ir.actions.act_window">
+        <field name="name">Configurable Unit Tags</field>
+        <field name="res_model">alm.configurable.unit.tag</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

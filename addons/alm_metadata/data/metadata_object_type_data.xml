@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- 1C Metadata Object Types -->
+        <record id="alm_metadata.meta_type_catalog" model="alm.metadata.object.type">
+            <field name="name">Справочник</field>
+            <field name="technical_name">Catalog</field>
+        </record>
+        <record id="alm_metadata.meta_type_document" model="alm.metadata.object.type">
+            <field name="name">Документ</field>
+            <field name="technical_name">Document</field>
+        </record>
+        <record id="alm_metadata.meta_type_report" model="alm.metadata.object.type">
+            <field name="name">Отчет</field>
+            <field name="technical_name">Report</field>
+        </record>
+        <record id="alm_metadata.meta_type_data_processor" model="alm.metadata.object.type">
+            <field name="name">Обработка</field>
+            <field name="technical_name">DataProcessor</field>
+        </record>
+        <record id="alm_metadata.meta_type_exchange_plan" model="alm.metadata.object.type">
+            <field name="name">План обмена</field>
+            <field name="technical_name">ExchangePlan</field>
+        </record>
+        <record id="alm_metadata.meta_type_chart_of_characteristic_types" model="alm.metadata.object.type">
+            <field name="name">План видов характеристик</field>
+            <field name="technical_name">ChartOfCharacteristicTypes</field>
+        </record>
+        <record id="alm_metadata.meta_type_chart_of_accounts" model="alm.metadata.object.type">
+            <field name="name">План счетов</field>
+            <field name="technical_name">ChartOfAccounts</field>
+        </record>
+        <record id="alm_metadata.meta_type_chart_of_calculation_types" model="alm.metadata.object.type">
+            <field name="name">План видов расчета</field>
+            <field name="technical_name">ChartOfCalculationTypes</field>
+        </record>
+        <record id="alm_metadata.meta_type_information_register" model="alm.metadata.object.type">
+            <field name="name">Регистр сведений</field>
+            <field name="technical_name">InformationRegister</field>
+        </record>
+        <record id="alm_metadata.meta_type_accumulation_register" model="alm.metadata.object.type">
+            <field name="name">Регистр накопления</field>
+            <field name="technical_name">AccumulationRegister</field>
+        </record>
+        <record id="alm_metadata.meta_type_accounting_register" model="alm.metadata.object.type">
+            <field name="name">Регистр бухгалтерии</field>
+            <field name="technical_name">AccountingRegister</field>
+        </record>
+        <record id="alm_metadata.meta_type_calculation_register" model="alm.metadata.object.type">
+            <field name="name">Регистр расчета</field>
+            <field name="technical_name">CalculationRegister</field>
+        </record>
+        <record id="alm_metadata.meta_type_business_process" model="alm.metadata.object.type">
+            <field name="name">Бизнес-процесс</field>
+            <field name="technical_name">BusinessProcess</field>
+        </record>
+        <record id="alm_metadata.meta_type_task" model="alm.metadata.object.type">
+            <field name="name">Задача</field>
+            <field name="technical_name">Task</field>
+        </record>
+        <record id="alm_metadata.meta_type_external_data_source" model="alm.metadata.object.type">
+            <field name="name">Внешний источник данных</field>
+            <field name="technical_name">ExternalDataSource</field>
+        </record>
+        <record id="alm_metadata.meta_type_common_module" model="alm.metadata.object.type">
+            <field name="name">Общий модуль</field>
+            <field name="technical_name">CommonModule</field>
+        </record>
+        <record id="alm_metadata.meta_type_role" model="alm.metadata.object.type">
+            <field name="name">Роль</field>
+            <field name="technical_name">Role</field>
+        </record>
+        <record id="alm_metadata.meta_type_subsystem" model="alm.metadata.object.type">
+            <field name="name">Подсистема</field>
+            <field name="technical_name">Subsystem</field>
+        </record>
+        <record id="alm_metadata.meta_type_constant" model="alm.metadata.object.type">
+            <field name="name">Константа</field>
+            <field name="technical_name">Constant</field>
+        </record>
+        <record id="alm_metadata.meta_type_enumeration" model="alm.metadata.object.type">
+            <field name="name">Перечисление</field>
+            <field name="technical_name">Enumeration</field>
+        </record>
+        <record id="alm_metadata.meta_type_xdto_package" model="alm.metadata.object.type">
+            <field name="name">XDTO-пакет</field>
+            <field name="technical_name">XDTO_Package</field>
+        </record>
+    </data>
+</odoo>

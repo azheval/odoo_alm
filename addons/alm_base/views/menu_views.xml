@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Top-level Menu -->
+    <menuitem 
+        id="alm_base.menu_root"
+        name="ALM"
+        web_icon="alm_base,static/description/icon.svg"
+        sequence="10"/>
+
+    <!-- Action for Configurable Unit -->
+    <record id="alm_base.action_configurable_unit" model="ir.actions.act_window">
+        <field name="name">Configurable Units</field>
+        <field name="res_model">alm.configurable.unit</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new configurable unit.
+            </p><p>
+                This can be a main configuration, an extension, or a reusable library.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu item for Configurable Unit -->
+    <menuitem
+        id="alm_base.menu_configurable_unit"
+        name="Configurable Units"
+        parent="alm_base.menu_root"
+        action="alm_base.action_configurable_unit"
+        sequence="10"/>
+
+    <!-- #################### -->
+    <!-- Version Menu Actions -->
+    <!-- #################### -->
+
+    <!-- Main action for all versions -->
+    <record id="alm_base.action_configurable_unit_version_all" model="ir.actions.act_window">
+        <field name="name">Versions</field>
+        <field name="res_model">alm.configurable.unit.version</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_filter_configurations': 1}</field>
+    </record>
+
+    <!-- Action for the smart button on configurable.unit form -->
+    <record id="alm_base.action_configurable_unit_version" model="ir.actions.act_window">
+        <field name="name">Versions</field>
+        <field name="res_model">alm.configurable.unit.version</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'default_unit_id': active_id}</field>
+        <field name="domain">[('unit_id', '=', active_id)]</field>
+    </record>
+
+    <!-- Menu item for all Versions -->
+    <menuitem
+        id="alm_base.menu_configurable_unit_version"
+        name="Versions"
+        parent="alm_base.menu_root"
+        action="alm_base.action_configurable_unit_version_all"
+        sequence="20"/>
+
+    <!-- #################### -->
+    <!-- Configuration Menu -->
+    <!-- #################### -->
+
+    <menuitem
+        id="alm_base.menu_configuration"
+        name="Configuration"
+        parent="alm_base.menu_root"
+        sequence="99"/>
+
+    <menuitem
+        id="alm_base.menu_configurable_unit_tag"
+        name="Tags"
+        parent="alm_base.menu_configuration"
+        action="alm_base.action_configurable_unit_tag"
+        sequence="10"/>
+</odoo>

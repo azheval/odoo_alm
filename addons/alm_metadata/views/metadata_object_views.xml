@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- List View -->
+    <record id="alm_metadata.view_metadata_object_list" model="ir.ui.view">
+        <field name="name">alm.metadata.object.list</field>
+        <field name="model">alm.metadata.object</field>
+        <field name="arch" type="xml">
+            <list string="Metadata Objects">
+                <field name="name"/>
+                <field name="technical_name"/>
+                <field name="type_id"/>
+                <field name="version_id"/>
+                <field name="unit_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="alm_metadata.view_metadata_object_form" model="ir.ui.view">
+        <field name="name">alm.metadata.object.form</field>
+        <field name="model">alm.metadata.object</field>
+        <field name="arch" type="xml">
+            <form string="Metadata Object">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="e.g. Catalog 'Customers'"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="type_id"/>
+                            <field name="version_id"/>
+                            <field name="unit_id"/>
+                        </group>
+                        <group>
+                            <field name="technical_name"/>
+                            <field name="technical_guid"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Details">
+                            <group>
+                                <field name="description"/>
+                                <field name="comment"/>
+                            </group>
+                        </page>
+                        <page string="Attributes">
+                            <field name="attribute_ids" context="{'default_object_id': id}">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="parent_id" domain="[('object_id', '=', parent.id)]"/>
+                                    <field name="technical_name"/>
+                                    <field name="type_id"/>
+                                    <field name="description"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="alm_metadata.view_metadata_object_search" model="ir.ui.view">
+        <field name="name">alm.metadata.object.search</field>
+        <field name="model">alm.metadata.object</field>
+        <field name="arch" type="xml">
+            <search string="Search Metadata Objects">
+                <field name="name" string="Object Name"/>
+                <field name="unit_id"/>
+                <field name="version_id"/>
+                <separator/>
+                <filter string="Configurable Unit" name="group_by_unit" context="{'group_by': 'unit_id'}"/>
+                <filter string="Version" name="group_by_version" context="{'group_by': 'version_id'}"/>
+                <filter string="Type" name="group_by_type" context="{'group_by': 'type_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="alm_metadata.action_metadata_object" model="ir.actions.act_window">
+        <field name="name">Metadata Objects</field>
+        <field name="res_model">alm.metadata.object</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'group_by': ['unit_id', 'version_id', 'type_id'], '_group_by_update': False}</field>
+        <field name="search_view_id" ref="alm_metadata.view_metadata_object_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new metadata object.
+            </p>
+        </field>
+    </record>
+</odoo>

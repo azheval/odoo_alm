@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="project_task_view_form_inherit_alm_requirement" model="ir.ui.view">
+        <field name="name">project.task.form.inherit.alm.requirement</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='project_id']" position="after">
+                <field name="requirement_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit List View to add requirement_id -->
+    <record id="project_task_view_list_inherit_alm_requirement" model="ir.ui.view">
+        <field name="name">project.task.list.inherit.alm.requirement</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_tree2"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="requirement_id" optional="show"/>
+            </field>
+        </field>
+    </record>
+</odoo>

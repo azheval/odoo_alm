@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- List View for Requirement -->
+    <record id="view_alm_requirement_list" model="ir.ui.view">
+        <field name="name">alm.requirement.list</field>
+        <field name="model">alm.requirement</field>
+        <field name="arch" type="xml">
+            <list string="Requirements">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="category_id"/>
+                <field name="project_id"/>
+                <field name="responsible_id"/>
+                <field name="state"/>
+                <field name="priority"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View for Requirement -->
+    <record id="view_alm_requirement_form" model="ir.ui.view">
+        <field name="name">alm.requirement.form</field>
+        <field name="model">alm.requirement</field>
+        <field name="arch" type="xml">
+            <form string="Requirement">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,in_progress,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Requirement Name..."/></h1>
+                        <h2><field name="code" readonly="1"/></h2>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="responsible_id"/>
+                            <field name="author_id"/>
+                            <field name="project_id"/>
+                        </group>
+                        <group>
+                            <field name="category_id"/>
+                            <field name="priority"/>
+                            <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                            <group>
+                                <field name="source"/>
+                            </group>
+                        </page>
+                        <page string="Hierarchy">
+                            <field name="parent_id"/>
+                            <field name="child_ids">
+                                <list>
+                                    <field name="code"/>
+                                    <field name="name"/>
+                                    <field name="state"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Implementation">
+                            <separator string="Tasks"/>
+                            <field name="task_ids"/>
+                            <separator string="Bugs"/>
+                            <field name="bug_ids"/>
+                        </page>
+                        <page string="Related Objects">
+                            <separator string="Metadata Objects"/>
+                            <field name="metadata_object_ids"/>
+                            <separator string="Processes"/>
+                            <field name="process_ids"/>
+                            <separator string="Functions"/>
+                            <separator string="Integrations"/>
+                            <field name="integration_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Kanban View for Requirement -->
+    <record id="view_alm_requirement_kanban" model="ir.ui.view">
+        <field name="name">alm.requirement.kanban</field>
+        <field name="model">alm.requirement</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="responsible_id"/>
+                <field name="priority"/>
+                <field name="tag_ids"/>
+                <templates>
+                    <t t-name="card">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong><field name="name"/></strong>
+                                <div><small><field name="code"/></small></div>
+                                <div class="mt-2">
+                                    <field name="responsible_id"/>
+                                </div>
+                                <div class="mt-2">
+                                    <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>

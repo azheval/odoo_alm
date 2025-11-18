@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_alm_configurable_unit_user,alm.configurable.unit user,model_alm_configurable_unit,base.group_user,1,1,1,1
+access_alm_configurable_unit_tag_user,alm.configurable.unit.tag user,model_alm_configurable_unit_tag,base.group_user,1,1,1,1
+access_alm_configurable_unit_version_user,alm.configurable.unit.version user,model_alm_configurable_unit_version,base.group_user,1,1,1,1

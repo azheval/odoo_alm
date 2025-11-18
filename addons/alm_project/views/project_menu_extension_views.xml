@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- 
+        This record moves the standard 'Project' application menu 
+        into our custom 'ALM' menu for better integration.
+    -->
+    <record id="project.menu_main_pm" model="ir.ui.menu">
+        <field name="parent_id" ref="alm_base.menu_root"/>
+        <field name="sequence">50</field> 
+    </record>
+</odoo>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Main menu for Requirements under ALM root -->
+    <menuitem id="menu_alm_requirement_root"
+              name="Requirements"
+              parent="alm_base.menu_root"
+              sequence="20"/>
+
+    <!-- Actions -->
+    <record id="alm_requirement_action" model="ir.actions.act_window">
+        <field name="name">Requirements</field>
+        <field name="res_model">alm.requirement</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new requirement
+            </p><p>
+                Define the requirements for your projects.
+            </p>
+        </field>
+    </record>
+
+    <record id="alm_requirement_category_action" model="ir.actions.act_window">
+        <field name="name">Requirement Categories</field>
+        <field name="res_model">alm.requirement.category</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menu items linking to actions -->
+    <menuitem id="menu_alm_requirement_list"
+              name="All Requirements"
+              parent="menu_alm_requirement_root"
+              action="alm_requirement_action"
+              sequence="10"/>
+
+    <menuitem id="menu_alm_requirement_category_list"
+              name="Categories"
+              parent="menu_alm_requirement_root"
+              action="alm_requirement_category_action"
+              sequence="100"/>
+</odoo>

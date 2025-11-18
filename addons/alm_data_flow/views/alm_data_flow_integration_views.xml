@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- List View for Data Flow Integration -->
+    <record id="alm_data_flow_integration_list_view" model="ir.ui.view">
+        <field name="name">alm.data.flow.integration.list</field>
+        <field name="model">alm.data.flow.integration</field>
+        <field name="arch" type="xml">
+            <list string="Data Flow Integrations">
+                <field name="name"/>
+                <field name="data_flow_id"/>
+                <field name="all_metadata_object_ids" widget="many2many_tags"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View for Data Flow Integration -->
+    <record id="view_alm_data_flow_integration_form" model="ir.ui.view">
+        <field name="name">alm.data.flow.integration.form</field>
+        <field name="model">alm.data.flow.integration</field>
+        <field name="arch" type="xml">
+            <form string="Data Flow Integration">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="e.g. Integration with ERP System"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="data_flow_id"/>
+                        </group>
+                        <group>
+                            <field name="all_metadata_object_ids" widget="many2many_tags" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                        <page string="Field Mappings">
+                            <field name="field_map_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name" readonly="1"/>
+                                    <field name="source_field_id"/>
+                                    <field name="technical_field"/>
+                                    <field name="target_field_id"/>
+                                    <field name="transformation_logic"/>
+                                    <field name="notes"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Diagram">
+                            <field name="diagram_data" widget="field_mapping_diagram_widget" class="w-100"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for Data Flow Integration -->
+    <record id="alm_data_flow_integration_action" model="ir.actions.act_window">
+        <field name="name">Data Flow Integrations</field>
+        <field name="res_model">alm.data.flow.integration</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new data flow integration.
+            </p>
+        </field>
+    </record>
+
+</odoo>

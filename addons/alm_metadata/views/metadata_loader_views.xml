@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Metadata Loader-->
+    <record id="alm_metadata.view_metadata_loader_form" model="ir.ui.view">
+        <field name="name">metadata.loader.wizard.form</field>
+        <field name="model">metadata.loader.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Load Metadata from 1C XML">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="unit_id" required="1"/>
+                            <field name="version_id" required="1"/>
+                        </group>
+                        <group>
+                            <field name="file_name" readonly="1"/>
+                            <field name="data_file" filename="file_name" required="1"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_load_metadata" type="object" string="Load Metadata" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="alm_metadata.action_metadata_loader" model="ir.actions.act_window">
+        <field name="name">Load Metadata</field>
+        <field name="res_model">metadata.loader.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

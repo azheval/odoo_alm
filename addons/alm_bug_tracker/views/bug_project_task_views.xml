@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit Form View to add bug_id -->
+    <record id="alm_bug_tracker.view_task_form_inherit" model="ir.ui.view">
+        <field name="name">project.task.form.inherit.bug</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <field name="parent_id" position="after">
+                <field name="bug_id"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Inherit List View to add bug_id -->
+    <record id="alm_bug_tracker.view_task_list_inherit" model="ir.ui.view">
+        <field name="name">project.task.list.inherit.bug</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_tree2"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="bug_id" optional="show"/>
+            </field>
+        </field>
+    </record>
+</odoo>

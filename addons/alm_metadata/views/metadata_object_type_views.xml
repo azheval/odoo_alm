@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- List View -->
+    <record id="alm_metadata.view_metadata_object_type_list" model="ir.ui.view">
+        <field name="name">alm.metadata.object.type.list</field>
+        <field name="model">alm.metadata.object.type</field>
+        <field name="arch" type="xml">
+            <list string="Metadata Object Types">
+                <field name="name"/>
+                <field name="technical_name"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="alm_metadata.view_metadata_object_type_form" model="ir.ui.view">
+        <field name="name">alm.metadata.object.type.form</field>
+        <field name="model">alm.metadata.object.type</field>
+        <field name="arch" type="xml">
+            <form string="Metadata Object Type">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="technical_name"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="alm_metadata.action_metadata_object_type" model="ir.actions.act_window">
+        <field name="name">Metadata Object Types</field>
+        <field name="res_model">alm.metadata.object.type</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new metadata object type.
+            </p>
+        </field>
+    </record>
+</odoo>

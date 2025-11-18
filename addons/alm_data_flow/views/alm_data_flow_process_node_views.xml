@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- List View for Process Node -->
+    <record id="view_alm_data_flow_process_node_list" model="ir.ui.view">
+        <field name="name">alm_data_flow.process.node.list</field>
+        <field name="model">alm_data_flow.process.node</field>
+        <field name="arch" type="xml">
+            <list string="Process Nodes">
+                <field name="name"/>
+                <field name="node_type"/>
+                <field name="process_id"/>
+                <field name="function_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View for Process Node -->
+    <record id="view_alm_data_flow_process_node_form" model="ir.ui.view">
+        <field name="name">alm_data_flow.process.node.form</field>
+        <field name="model">alm_data_flow.process.node</field>
+        <field name="arch" type="xml">
+            <form string="Process Node">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="node_type"/>
+                        <field name="process_id"/>
+                        <field name="function_id" invisible="node_type != 'function'"/>
+                        <field name="condition" invisible="node_type != 'gateway'"/>
+                    </group>
+                    <group string="Diagram Position">
+                        <field name="position_x"/>
+                        <field name="position_y"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

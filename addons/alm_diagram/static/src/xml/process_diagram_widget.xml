@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="alm_diagram.ProcessDiagramWidget" owl="1">
+        <div class="o_field_process_diagram">
+            <div class="o_process_diagram_buttons">
+                <!--<button class="btn btn-secondary" t-on-click="_onLoadDiagram">Load Diagram</button>-->
+                <!--<button class="btn btn-primary" t-on-click="_onSaveDiagram">Save Diagram</button>-->
+                <button class="btn btn-info" t-on-click="_onGenerateDiagram">Generate from Data</button>
+                <button class="btn btn-success" t-on-click="_onSaveAndUpdate">Save and Update from Diagram</button>
+            </div>
+            <div class="o_process_diagram_editor_container" t-ref="iframe-container"/>
+        </div>
+    </t>
+</templates>

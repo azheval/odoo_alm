@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_alm_data_flow_integration_form_inherit_requirement" model="ir.ui.view">
+        <field name="name">alm.data.flow.integration.form.inherit.requirement</field>
+        <field name="model">alm.data.flow.integration</field>
+        <field name="inherit_id" ref="alm_data_flow.view_alm_data_flow_integration_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Requirements">
+                    <field name="requirement_ids"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
