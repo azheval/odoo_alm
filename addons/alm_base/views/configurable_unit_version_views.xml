@@ -15,6 +15,20 @@
         </field>
     </record>
 
+    <!-- Search View -->
+    <record id="alm_base.view_configurable_unit_version_search" model="ir.ui.view">
+        <field name="name">alm.configurable.unit.version.search</field>
+        <field name="model">alm.configurable.unit.version</field>
+        <field name="arch" type="xml">
+            <search string="Search Versions">
+                <field name="name"/>
+                <field name="unit_id"/>
+                <separator/>
+                <filter string="Configurable Unit" name="group_by_unit" context="{'group_by': 'unit_id'}"/>
+            </search>
+        </field>
+    </record>
+
     <!-- Form View for Version -->
     <record id="alm_base.view_configurable_unit_version_form" model="ir.ui.view">
         <field name="name">alm.configurable.unit.version.form</field>

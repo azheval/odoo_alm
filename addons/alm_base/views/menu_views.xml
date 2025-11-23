@@ -38,7 +38,7 @@
         <field name="name">Versions</field>
         <field name="res_model">alm.configurable.unit.version</field>
         <field name="view_mode">list,form</field>
-        <field name="context">{'search_default_filter_configurations': 1}</field>
+        <field name="context">{'search_default_filter_configurations': 1, 'group_by': 'unit_id'}</field>
     </record>
 
     <!-- Action for the smart button on configurable.unit form -->
