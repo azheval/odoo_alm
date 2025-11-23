@@ -23,7 +23,16 @@
         <field name="arch" type="xml">
             <form string="Bug">
                 <header>
-                    <field name="state" widget="statusbar" statusbar_visible="new,confirmed,fixed"/>
+                    <button name="action_confirm" string="Confirm" type="object" class="oe_highlight"
+                            invisible="state != 'new'"/>
+                    <button name="action_mark_as_fixed" string="Mark as Fixed" type="object" class="oe_highlight"
+                            invisible="state != 'confirmed'"/>
+                    <button name="action_reject" string="Reject" type="object"
+                            invisible="state not in ['new', 'confirmed']"/>
+                    <button name="action_reopen" string="Re-open" type="object"
+                            invisible="state not in ['rejected', 'fixed']"/>
+                    <field name="state" widget="statusbar" readonly="1"
+                           statusbar_visible="new,confirmed,fixed"/>
                 </header>
                 <sheet>
                     <div class="oe_title">
@@ -38,7 +47,7 @@
                         </group>
                         <group>
                             <field name="detection_date"/>
-                            <field name="fix_date"/>
+                            <field name="fix_date" readonly="1"/>
                         </group>
                     </group>
                     <notebook>

@@ -76,3 +76,23 @@ class AlmBug(models.Model):
     task_ids = fields.One2many('project.task', 'bug_id', string='Fixing Tasks')
 
     test_name = fields.Text(string='Detected by Test')
+
+    def action_confirm(self):
+        for record in self:
+            record.state = 'confirmed'
+
+    def action_mark_as_fixed(self):
+        for record in self:
+            record.write({
+                'state': 'fixed',
+                'fix_date': fields.Datetime.now(),
+                'fixed_in_version_ids': [(6, 0, record.reported_in_version_ids.ids)],
+            })
+
+    def action_reject(self):
+        for record in self:
+            record.state = 'rejected'
+
+    def action_reopen(self):
+        for record in self:
+            record.state = 'confirmed'

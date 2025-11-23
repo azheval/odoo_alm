@@ -1,6 +1,6 @@
 {
     'name': 'ALM Bug Tracker',
-    'version': '19.0.1.0.1',
+    'version': '19.0.1.0.2',
     'summary': 'A bug tracking system for ALM',
     'description': """
         A bug tracking system for the ALM application.
