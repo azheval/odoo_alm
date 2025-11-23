@@ -18,6 +18,13 @@ class AlmProcessFunction(models.Model):
         tracking=True,
     )
 
+    application_id = fields.Many2one(
+        'alm.configurable.unit',
+        string='Configurable Unit',
+        related='process_id.application_id',
+        store=True,
+    )
+
     sequence = fields.Integer(string='Sequence', default=10, help="Order of execution within the process.")
 
     responsible_role_id = fields.Many2one(
