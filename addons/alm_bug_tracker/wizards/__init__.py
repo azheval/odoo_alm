@@ -1,0 +1,1 @@
+from . import bug_report_wizard

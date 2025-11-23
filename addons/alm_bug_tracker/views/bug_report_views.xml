@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Pivot View for Bug Report -->
+    <record id="bug_report_line_pivot_view" model="ir.ui.view">
+        <field name="name">bug.report.line.pivot</field>
+        <field name="model">bug.report.line</field>
+        <field name="arch" type="xml">
+            <pivot string="Bug Report">
+                <field name="configurable_unit_id" type="row"/>
+                <field name="version_id" type="row"/>
+                <field name="report_type" type="col"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Graph View for Bug Report -->
+    <record id="bug_report_line_graph_view" model="ir.ui.view">
+        <field name="name">bug.report.line.graph</field>
+        <field name="model">bug.report.line</field>
+        <field name="arch" type="xml">
+            <graph string="Bug Report">
+                <field name="version_id" type="row"/>
+                <field name="report_type" type="col"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- List View for Bug Report (Drill-down) -->
+    <record id="bug_report_line_tree_view" model="ir.ui.view">
+        <field name="name">bug.report.line.list</field>
+        <field name="model">bug.report.line</field>
+        <field name="arch" type="xml">
+            <list string="Bug Report Details" create="false" edit="false" delete="false">
+                <field name="configurable_unit_id"/>
+                <field name="version_id"/>
+                <field name="bug_id" widget="many2one_clickable"/>
+                <field name="report_type"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Search View for Bug Report -->
+    <record id="bug_report_line_search_view" model="ir.ui.view">
+        <field name="name">bug.report.line.search</field>
+        <field name="model">bug.report.line</field>
+        <field name="arch" type="xml">
+            <search string="Search Bug Report">
+                <field name="bug_id"/>
+                <field name="version_id"/>
+                <field name="configurable_unit_id"/>
+                <filter string="My Reports" name="my_reports" domain="[('create_uid', '=', uid)]"/>
+                <separator/>
+                <filter string="Configurable Unit" name="group_by_configurable_unit" context="{'group_by': 'configurable_unit_id'}"/>
+                <filter string="Version" name="group_by_version" context="{'group_by': 'version_id'}"/>
+                <filter string="Type" name="group_by_report_type" context="{'group_by': 'report_type'}"/>
+                <filter string="Created By" name="group_by_create_uid" context="{'group_by': 'create_uid'}"/>
+            </search>
+        </field>
+    </record>
+</odoo>

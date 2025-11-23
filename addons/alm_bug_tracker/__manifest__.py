@@ -1,6 +1,6 @@
 {
     'name': 'ALM Bug Tracker',
-    'version': '19.0.1.0.0',
+    'version': '19.0.1.0.1',
     'summary': 'A bug tracking system for ALM',
     'description': """
         A bug tracking system for the ALM application.
@@ -25,6 +25,8 @@
         'views/bug_views.xml',
         'views/bug_project_task_views.xml',
         'views/menu_views.xml',
+        'wizards/bug_report_wizard_views.xml',
+        'views/bug_report_views.xml',
     ],
     'installable': True,
     'application': True,

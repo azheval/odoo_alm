@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- Root menu for Bug Tracker -->
+    <menuitem
+        id="menu_bug_tracker_root"
+        name="Bug Tracker"
+        parent="alm_base.menu_root"
+        sequence="40"/>
+
     <!-- Action for Bugs -->
     <record id="action_alm_bug" model="ir.actions.act_window">
         <field name="name">Bugs</field>
@@ -16,8 +23,8 @@
     <!-- Menu item for Bugs -->
     <menuitem
         id="menu_alm_bug"
-        name="Bug Tracker"
-        parent="alm_base.menu_root"
+        name="Bugs"
+        parent="menu_bug_tracker_root"
         action="action_alm_bug"
-        sequence="40"/>
+        sequence="10"/>
 </odoo>

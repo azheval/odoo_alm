@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Bug Report Wizard Form View -->
+    <record id="bug_report_wizard_form_view" model="ir.ui.view">
+        <field name="name">bug.report.wizard.form</field>
+        <field name="model">bug.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Generate Bug Report">
+                <group>
+                    <group>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                </group>
+                <field name="version_ids" nolabel="1">
+                    <list>
+                        <field name="unit_id"/>
+                        <field name="name"/>
+                    </list>
+                </field>
+                <footer>
+                    <button name="generate_report" string="Generate Report" type="object"
+                            class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to open Bug Report Wizard -->
+    <record id="action_bug_report_wizard" model="ir.actions.act_window">
+        <field name="name">Bug Report</field>
+        <field name="res_model">bug.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Menu item to open Bug Report Wizard -->
+    <menuitem id="menu_bug_report_wizard"
+              name="Bug Report"
+              parent="alm_bug_tracker.menu_bug_tracker_root"
+              action="action_bug_report_wizard"
+              sequence="20"/>
+</odoo>
