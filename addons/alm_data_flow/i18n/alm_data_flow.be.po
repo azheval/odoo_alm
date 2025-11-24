@@ -24,6 +24,14 @@ msgstr "Радок адлюстравання не можа быць пусты�
 msgid "A technical field must be used either as a source or a target for another field."
 msgstr "Тэхнічнае поле павінна выкарыстоўвацца ў якасці крыніцы або мэты для іншага поля."
 
+#: views\alm_data_flow_process_function_views.xml
+msgid "Application"
+msgstr "Ужыванне"
+
+#: views\alm_data_flow_process_views.xml
+msgid "Configurable Unit"
+msgstr "Наладжвальны блок"
+
 #: views\alm_data_flow_integration_views.xml
 msgid "Create a new data flow integration."
 msgstr "Стварыце новую інтэграцыю патоку даных."
@@ -111,6 +119,10 @@ msgstr "Функцыі апісваюць дэталёвыя дзеянні, і�
 msgid "Functions/Steps"
 msgstr "Функцыі/крокі"
 
+#: views\menu_views.xml
+msgid "Integrations"
+msgstr "Інтэграцыі"
+
 #: views\alm_data_flow_data_flow_views.xml
 #: views\alm_data_flow_process_views.xml
 msgid "Metadata"
@@ -125,6 +137,7 @@ msgstr "Уваходы/вывады метададзеных"
 msgid "Nodes"
 msgstr "Вузлы"
 
+#: views\alm_data_flow_process_function_views.xml
 #: views\alm_data_flow_process_views.xml
 msgid "Process"
 msgstr "Працэс"
@@ -154,6 +167,14 @@ msgstr "Працэсы"
 #: views\alm_data_flow_process_views.xml
 msgid "Processes are sequences of functions or steps that describe\n                how data is handled within or between applications."
 msgstr "Працэсы - гэта паслядоўнасці функцый або крокаў, якія апісваюць\n                "
+
+#: views\alm_data_flow_process_function_views.xml
+msgid "Search Functions/Steps"
+msgstr "Функцыі/крокі пошуку"
+
+#: views\alm_data_flow_process_views.xml
+msgid "Search Processes"
+msgstr "Пошукавыя працэсы"
 
 #: views\alm_data_flow_process_function_views.xml
 msgid "Transformation Logic"
@@ -224,9 +245,17 @@ msgstr "alm.process.function.form"
 msgid "alm.process.function.list"
 msgstr "alm.process.function.list"
 
+#: views\alm_data_flow_process_function_views.xml
+msgid "alm.process.function.search"
+msgstr "alm.process.function.search"
+
 #: views\alm_data_flow_process_views.xml
 msgid "alm.process.list"
 msgstr "alm.process.list"
+
+#: views\alm_data_flow_process_views.xml
+msgid "alm.process.search"
+msgstr "alm.process.search"
 
 #: views\menu_views.xml
 msgid "alm_data_flow,static/description/icon.svg"
@@ -275,3 +304,11 @@ msgstr "напр. "
 #: views\alm_data_flow_process_function_views.xml
 msgid "list,form"
 msgstr "спіс, форма"
+
+#: views\alm_data_flow_process_views.xml
+msgid "{'group_by': 'application_id'}"
+msgstr "{'group_by': 'application_id'}"
+
+#: views\alm_data_flow_process_function_views.xml
+msgid "{'group_by': ['application_id', 'process_id']}"
+msgstr "{'group_by': ['application_id', 'process_id']}"

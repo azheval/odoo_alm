@@ -16,18 +16,52 @@ msgstr ""
 "Language: ru\n"
 "X-Generator: Smart Translation Helper\n"
 
+#: data\sequences.xml
+msgid "ALM Bug Number"
+msgstr "Номер ошибки ALM"
+
 #: views\bug_views.xml
 msgid "Affected Versions"
 msgstr "Затронутые версии"
+
+#: data\sequences.xml
+msgid "BUG-"
+msgstr "ОШИБКА-"
 
 #: views\bug_views.xml
 msgid "Bug"
 msgstr "Ошибка"
 
 #: views\bug_views.xml
+msgid "Bug ID"
+msgstr "Идентификатор ошибки"
+
+#: wizards\bug_report_wizard.py
+#: views\bug_report_views.xml
+#: views\bug_report_views.xml
+msgid "Bug Report"
+msgstr "Отчет об ошибке"
+
+#: views\bug_report_views.xml
+msgid "Bug Report Details"
+msgstr "Подробности отчета об ошибке"
+
+#: views\bug_views.xml
 #: views\menu_views.xml
 msgid "Bugs"
 msgstr "Ошибки"
+
+#: wizards\bug_report_wizard_views.xml
+msgid "Cancel"
+msgstr "Отмена"
+
+#: views\bug_report_views.xml
+msgid "Configurable Unit"
+msgstr "Конфигурируемый блок"
+
+#: views\bug_views.xml
+msgid "Confirm"
+msgstr "Подтверждать"
 
 #: views\bug_views.xml
 msgid "Confirmed"
@@ -36,6 +70,10 @@ msgstr "Подтвержденный"
 #: views\menu_views.xml
 msgid "Create a new bug report."
 msgstr "Создайте новый отчет об ошибке."
+
+#: views\bug_report_views.xml
+msgid "Created By"
+msgstr "Создано"
 
 #: views\bug_views.xml
 msgid "Details"
@@ -53,6 +91,18 @@ msgstr "Исправлено в версиях"
 msgid "Fixing Tasks"
 msgstr "Исправление задач"
 
+#: wizards\bug_report_wizard_views.xml
+msgid "Generate Bug Report"
+msgstr "Создать отчет об ошибке"
+
+#: wizards\bug_report_wizard_views.xml
+msgid "Generate Report"
+msgstr "Создать отчет"
+
+#: views\bug_views.xml
+msgid "Mark as Fixed"
+msgstr "Отметить как исправленное"
+
 #: views\bug_views.xml
 msgid "Metadata"
 msgstr "Метаданные"
@@ -60,6 +110,10 @@ msgstr "Метаданные"
 #: views\bug_views.xml
 msgid "My Bugs"
 msgstr "Мои ошибки"
+
+#: views\bug_report_views.xml
+msgid "My Reports"
+msgstr "Мои отчеты"
 
 #: views\bug_views.xml
 msgid "New"
@@ -70,8 +124,20 @@ msgid "Priority"
 msgstr "Приоритет"
 
 #: views\bug_views.xml
+msgid "Re-open"
+msgstr "Открыть повторно"
+
+#: views\bug_views.xml
+msgid "Reject"
+msgstr "Отклонять"
+
+#: views\bug_views.xml
 msgid "Responsible"
 msgstr "Ответственный"
+
+#: views\bug_report_views.xml
+msgid "Search Bug Report"
+msgstr "Поиск отчета об ошибке"
 
 #: views\bug_views.xml
 msgid "Search Bugs"
@@ -88,6 +154,14 @@ msgstr "Состояние"
 #: views\bug_views.xml
 msgid "Test Info"
 msgstr "Информация о тесте"
+
+#: views\bug_report_views.xml
+msgid "Type"
+msgstr "Тип"
+
+#: views\bug_report_views.xml
+msgid "Version"
+msgstr "Версия"
 
 #: views\bug_views.xml
 #: views\bug_views.xml
@@ -107,9 +181,52 @@ msgstr "alm.bug.list"
 msgid "alm.bug.search"
 msgstr "alm.bug.search"
 
+#: data\sequences.xml
+msgid "alm.bug.sequence"
+msgstr "alm.bug.sequence"
+
+#: views\bug_report_views.xml
+#: views\bug_report_views.xml
+#: views\bug_report_views.xml
+msgid "bug.report.line"
+msgstr "ошибка.report.line"
+
+#: views\bug_report_views.xml
+msgid "bug.report.line.graph"
+msgstr "ошибка.report.line.graph"
+
+#: views\bug_report_views.xml
+msgid "bug.report.line.list"
+msgstr "ошибка.report.line.list"
+
+#: views\bug_report_views.xml
+msgid "bug.report.line.pivot"
+msgstr "ошибка.report.line.pivot"
+
+#: views\bug_report_views.xml
+msgid "bug.report.line.search"
+msgstr "ошибка.report.line.search"
+
+#: wizards\bug_report_wizard_views.xml
+#: wizards\bug_report_wizard_views.xml
+msgid "bug.report.wizard"
+msgstr "ошибка.report.wizard"
+
+#: wizards\bug_report_wizard_views.xml
+msgid "bug.report.wizard.form"
+msgstr "ошибка.report.wizard.form"
+
+#: wizards\bug_report_wizard_views.xml
+msgid "form"
+msgstr "форма"
+
 #: views\menu_views.xml
 msgid "list,form"
 msgstr "список, форма"
+
+#: wizards\bug_report_wizard_views.xml
+msgid "new"
+msgstr "новый"
 
 #: views\bug_project_task_views.xml
 #: views\bug_project_task_views.xml
