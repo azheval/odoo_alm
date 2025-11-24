@@ -17,10 +17,19 @@ msgstr ""
 "X-Generator: Smart Translation Helper\n"
 
 #: views\configurable_unit_views.xml
+msgid "Bugs:"
+msgstr "Ошибки:"
+
+#: views\configurable_unit_views.xml
+msgid "Bugs: "
+msgstr "Ошибки:"
+
+#: views\configurable_unit_views.xml
 msgid "Categorization"
 msgstr "Категоризация"
 
 #: models\configurable_unit_version.py
+#: views\configurable_unit_version_views.xml
 #: views\configurable_unit_views.xml
 msgid "Configurable Unit"
 msgstr "Конфигурируемый блок"
@@ -86,6 +95,10 @@ msgstr "Дата публикации"
 msgid "Published"
 msgstr "Опубликовано"
 
+#: views\configurable_unit_version_views.xml
+msgid "Search Versions"
+msgstr "Поиск версий"
+
 #: models\configurable_unit_version.py
 msgid "State"
 msgstr "Состояние"
@@ -138,6 +151,10 @@ msgstr "Версия должна быть уникальной для кажд�
 msgid "Versions"
 msgstr "Версии"
 
+#: views\configurable_unit_views.xml
+msgid "Versions:"
+msgstr "Версии:"
+
 #: views\menu_views.xml
 msgid "[('unit_id', '=', active_id)]"
 msgstr "[('unit_id', '=', active_id)]"
@@ -176,7 +193,7 @@ msgstr "alm.configurable.unit.tag.list"
 
 #: views\configurable_unit_version_views.xml
 #: views\configurable_unit_version_views.xml
-#: views\menu_views.xml
+#: views\configurable_unit_version_views.xml
 msgid "alm.configurable.unit.version"
 msgstr "alm.configurable.unit.version"
 
@@ -187,6 +204,10 @@ msgstr "alm.configurable.unit.version.form"
 #: views\configurable_unit_version_views.xml
 msgid "alm.configurable.unit.version.list"
 msgstr "alm.configurable.unit.version.list"
+
+#: views\configurable_unit_version_views.xml
+msgid "alm.configurable.unit.version.search"
+msgstr "alm.configurable.unit.version.search"
 
 #: views\configurable_unit_views.xml
 msgid "e.g. My Main Configuration"
@@ -207,5 +228,5 @@ msgid "{'default_unit_id': active_id}"
 msgstr "{'default_unit_id': active_id}"
 
 #: views\menu_views.xml
-msgid "{'search_default_filter_configurations': 1}"
-msgstr "{'search_default_filter_configurations': 1}"
+msgid "{'search_default_filter_configurations': 1, 'group_by': 'unit_id'}"
+msgstr "{'search_default_filter_configurations': 1, 'group_by': 'unit_id'}"

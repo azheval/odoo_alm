@@ -25,14 +25,39 @@
                 <field name="unit_type"/>
                 <field name="user_ids"/>
                 <field name="tag_ids"/>
+                <field name="development_version_count"/>
+                <field name="published_version_count"/>
+                <field name="unsupported_version_count"/>
+                <field name="new_bug_count"/>
+                <field name="confirmed_bug_count"/>
+                <field name="fixed_bug_count"/>
                 <templates>
                     <t t-name="card">
-                        <div t-attf-class="oe_kanban_global_click">
+                        <div t-attf-class="oe_kanban_global_click rounded border shadow p-2 mb-3 bg-white">
                             <div class="oe_kanban_details">
                                 <strong><field name="name"/></strong>
                                 <div><small><field name="technical_name"/></small></div>
                                 <div class="mt-2">
                                     <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                                </div>
+                                <hr/>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <small>
+                                            Versions:
+                                            <span class="text-info">(<field name="development_version_count"/>)</span>
+                                            <span class="text-success">(<field name="published_version_count"/>)</span>
+                                            <span class="text-muted">(<field name="unsupported_version_count"/>)</span>
+                                        </small>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <small>
+                                            Bugs:
+                                            <span class="text-primary">(<field name="new_bug_count"/>)</span>
+                                            <span class="text-danger">(<field name="confirmed_bug_count"/>)</span>
+                                            <span class="text-success">(<field name="fixed_bug_count"/>)</span>
+                                        </small>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -58,6 +83,12 @@
                         <group string="General">
                             <field name="technical_name"/>
                             <field name="unit_type"/>
+                            <div class="o_row">
+                                <label for="new_bug_count" string="Bugs: "/>
+                                <span class="text-primary">(<field name="new_bug_count" class="oe_inline" nolabel="1"/>)</span>
+                                <span class="text-danger">(<field name="confirmed_bug_count" class="oe_inline" nolabel="1"/>)</span>
+                                <span class="text-success">(<field name="fixed_bug_count" class="oe_inline" nolabel="1"/>)</span>
+                            </div>
                         </group>
                         <group string="Categorization">
                             <field name="user_ids" widget="many2many_tags"/>

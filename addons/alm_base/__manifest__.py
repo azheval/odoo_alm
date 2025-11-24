@@ -1,6 +1,6 @@
 {
     'name': 'ALM Base',
-    'version': '19.0.1.0.1',
+    'version': '19.0.1.0.2',
     'summary': 'Base models for ALM application',
     'description': """
         This module provides base models and functionalities for the ALM application.
