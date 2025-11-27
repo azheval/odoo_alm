@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- List View for Test Suite -->
+    <record id="alm_test_suite_view_list" model="ir.ui.view">
+        <field name="name">alm.test.suite.list</field>
+        <field name="model">alm.test.suite</field>
+        <field name="arch" type="xml">
+            <list string="Test Suites">
+                <field name="name"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View for Test Suite -->
+    <record id="alm_test_suite_view_form" model="ir.ui.view">
+        <field name="name">alm.test.suite.form</field>
+        <field name="model">alm.test.suite</field>
+        <field name="arch" type="xml">
+            <form string="Test Suite">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="e.g. Regression Tests"/></h1>
+                    </div>
+                    <group>
+                        <field name="description"/>
+                    </group>
+                    <notebook>
+                        <page string="Test Cases">
+                            <field name="test_case_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="state"/>
+                                    <field name="test_type"/>
+                                    <field name="priority"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for Test Suite -->
+    <record id="alm_test_suite_action" model="ir.actions.act_window">
+        <field name="name">Test Suites</field>
+        <field name="res_model">alm.test.suite</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

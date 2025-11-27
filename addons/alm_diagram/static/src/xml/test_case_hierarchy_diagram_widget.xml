@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="alm_diagram.TestCaseHierarchyDiagramWidget" owl="1">
+        <div class="o_field_process_diagram">
+            <div class="o_process_diagram_buttons">
+                <button type="button" class="btn btn-secondary btn-sm" t-on-click.prevent="_onGenerateDiagram">Generate Diagram</button>
+                <button type="button" class="btn btn-primary btn-sm" t-on-click.prevent="_onSaveDiagram">Save Diagram</button>
+                <button type="button" class="btn btn-success btn-sm" t-on-click.prevent="_onSaveAndUpdate">Save and Update from Diagram</button>
+            </div>
+            <div class="o_process_diagram_editor_container" t-ref="iframe-container"/>
+        </div>
+    </t>
+</templates>

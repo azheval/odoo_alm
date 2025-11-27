@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_alm_test_case_user,alm.test.case.user,model_alm_test_case,base.group_user,1,1,1,1
+access_alm_test_suite_user,alm.test.suite.user,model_alm_test_suite,base.group_user,1,1,1,1
+access_alm_test_case_scenario_user,alm.test.case.scenario.user,model_alm_test_case_scenario,base.group_user,1,1,1,1

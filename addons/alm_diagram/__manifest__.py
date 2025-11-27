@@ -1,6 +1,6 @@
 {
     'name': 'ALM Diagramming',
-    'version': '19.0.1.0.0',
+    'version': '19.0.1.0.1',
     'summary': 'Provides diagramming capabilities for ALM models using embedded Draw.io.',
     'description': """
         This module integrates an embedded Draw.io editor into Odoo forms
@@ -33,6 +33,8 @@
             'alm_diagram/static/src/xml/data_flow_diagram_widget.xml',
             'alm_diagram/static/src/js/field_mapping_diagram_widget.js',
             'alm_diagram/static/src/xml/field_mapping_diagram_widget.xml',
+            'alm_diagram/static/src/js/test_case_hierarchy_diagram_widget.js',
+            'alm_diagram/static/src/xml/test_case_hierarchy_diagram_widget.xml',
         ],
     },
     'installable': True,

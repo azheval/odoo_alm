@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View for Test Case -->
+    <record id="alm_test_case_view_form" model="ir.ui.view">
+        <field name="name">alm.test.case.form</field>
+        <field name="model">alm.test.case</field>
+        <field name="arch" type="xml">
+            <form string="Test Case">
+                <header>
+                    <button name="action_activate" type="object" string="Activate" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_archive" type="object" string="Archive" invisible="state != 'active'"/>
+                    <button name="action_reset_to_draft" type="object" string="Reset to Draft" invisible="state not in ['active', 'archive']"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,active,archive"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="e.g. Verify Login Functionality"/></h1>
+                        <h2><field name="test_case_number"/></h2>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="test_framework" widget="radio" options="{'horizontal': true}"/>
+                            <field name="suite_ids" widget="many2many_tags"/>
+                            <field name="test_type"/>
+                            <field name="priority"/>
+                            <field name="responsible_user_id"/>
+                            <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                        </group>
+                        <group>
+                            <field name="last_execution_result" widget="badge" decoration-success="last_execution_result == 'passed'" decoration-danger="last_execution_result == 'failed'" decoration-warning="last_execution_result == 'not_run'"/>
+                            <field name="last_execution_date"/>
+                            <field name="repository_path"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                        <page string="Preconditions">
+                            <field name="preconditions"/>
+                        </page>
+                        <page string="Postconditions">
+                            <field name="postconditions"/>
+                        </page>
+                        <page string="Gherkin Script" name="gherkin_script_page" invisible="test_framework != 'gherkin_vanessa'">
+                            <group>
+                                <label for="gherkin_script_upload" string="Gherkin Script File"/>
+                                <div class="o_row">
+                                    <field name="gherkin_script_upload" widget="binary" nolabel="1" filename="gherkin_script_filename"/>
+                                    <button name="action_download_gherkin_script" type="object" string="Download" icon="fa-download" class="btn-secondary" invisible="not gherkin_script"/>
+                                </div>
+                                <field name="gherkin_script_filename" readonly="1"/>
+                            </group>
+                            <field name="gherkin_script"/>
+                        </page>
+                        <page string="Playwright Script" name="playwright_script_page" invisible="test_framework != 'playwright'">
+                            <group>
+                                <label for="playwright_script_upload" string="Playwright Script File"/>
+                                <div class="o_row">
+                                    <field name="playwright_script_upload" widget="binary" nolabel="1" filename="playwright_script_filename"/>
+                                    <button name="action_download_playwright_script" type="object" string="Download" icon="fa-download" class="btn-secondary" invisible="not playwright_script"/>
+                                </div>
+                                <field name="playwright_script_filename" readonly="1"/>
+                            </group>
+                            <field name="playwright_script" widget="ace" options="{'mode': 'python'}"/>
+                        </page>
+                        <page string="Scenarios" name="scenarios_page" invisible="test_framework != 'gherkin_vanessa'">
+                            <field name="scenario_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="parameters"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Related Items">
+                            <group>
+                                <group string="Requirements">
+                                    <field name="requirement_ids" widget="many2many_tags"/>
+                                </group>
+                                <group string="Bugs">
+                                    <field name="bug_ids" widget="many2many_tags"/>
+                                </group>
+                            </group>
+                            <group string="Data Flow Elements">
+                                <group>
+                                    <field name="function_ids" widget="many2many_tags"/>
+                                </group>
+                                <group>
+                                    <field name="process_ids" widget="many2many_tags"/>
+                                </group>
+                                <group>
+                                    <field name="flow_ids" widget="many2many_tags"/>
+                                </group>
+                            </group>
+                            <group string="Metadata">
+                                <field name="metadata_object_ids" readonly="1" widget="many2many_tags"/>
+                            </group>
+                        </page>
+                        <page string="Hierarchy" name="tab_hierarchy">
+                            <div class="o_action_box" invisible="test_framework != 'gherkin_vanessa'">
+                                <button name="action_analyze_hierarchy"
+                                        type="object"
+                                        string="Analyze and Build Hierarchy"
+                                        class="btn-primary"/>
+                            </div>
+                            <group>
+                                <group>
+                                    <field name="includes_ids" context="{'default_test_type': test_type}" help="For Gherkin tests, this is populated automatically. For Playwright and Manual tests, this must be set manually."/>
+                                </group>
+                                <group>
+                                    <field name="included_in_ids"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Diagram" name="tab_diagram">
+                           <field name="diagram_data" widget="test_case_hierarchy_diagram_widget" class="w-100"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- List View for Test Case -->
+    <record id="alm_test_case_view_list" model="ir.ui.view">
+        <field name="name">alm.test.case.list</field>
+        <field name="model">alm.test.case</field>
+        <field name="arch" type="xml">
+            <list string="Test Cases">
+                <field name="name"/>
+                <field name="test_case_number"/>
+                <field name="test_framework"/>
+                <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-success="state == 'active'" decoration-muted="state == 'archive'"/>
+                <field name="test_type"/>
+                <field name="priority"/>
+                <field name="responsible_user_id"/>
+                <field name="last_execution_result" widget="badge" decoration-success="last_execution_result == 'passed'" decoration-danger="last_execution_result == 'failed'" decoration-warning="last_execution_result == 'not_run'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Kanban View for Test Case -->
+    <record id="alm_test_case_view_kanban" model="ir.ui.view">
+        <field name="name">alm.test.case.kanban</field>
+        <field name="model">alm.test.case</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="suite_ids">
+                <field name="name"/>
+                <field name="suite_ids"/>
+                <field name="state"/>
+                <field name="test_framework"/>
+                <field name="test_type"/>
+                <field name="priority"/>
+                <field name="responsible_user_id"/>
+                <field name="tag_ids"/>
+                <field name="last_execution_result"/>
+                <field name="last_execution_date"/>
+                <templates>
+                    <t t-name="card">
+                        <div t-attf-class="oe_kanban_global_click rounded border shadow p-2 mb-3 bg-white">
+                            <div class="oe_kanban_details">
+                                <div class="float-right">
+                                    <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-success="state == 'active'" decoration-muted="state == 'archive'"/>
+                                </div>
+                                <strong><field name="name"/> (<field name="test_case_number"/>)</strong>
+                                <div><small><field name="suite_ids" widget="many2many_tags"/></small></div>
+                                <div><small>Type: <field name="test_type"/></small> - <small>Framework: <field name="test_framework"/></small></div>
+                                <div><small>Responsible: <field name="responsible_user_id"/></small></div>
+                                <div class="mt-2">
+                                    <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                                </div>
+                                <hr/>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <small>Priority: <field name="priority"/></small>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <small>Last Run: <field name="last_execution_result" widget="badge" decoration-success="last_execution_result == 'passed'" decoration-danger="last_execution_result == 'failed'" decoration-warning="last_execution_result == 'not_run'"/> <field name="last_execution_date" nolabel="1"/></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Action for Test Case -->
+    <record id="alm_test_case_action" model="ir.actions.act_window">
+        <field name="name">Test Cases</field>
+        <field name="res_model">alm.test.case</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Test Case
+            </p>
+        </field>
+    </record>
+
+</odoo>
