@@ -5,7 +5,7 @@
 ## Modules
 
 | Module Name | Description | Version |
-|---|---|
+|---|---|---|
 | ALM Base | Base models for ALM application | 19.0.1.0.2 |
 | ALM Theme | Custom theme for the ALM application. | 19.0.1.0.0 |
 | ALM Metadata | Manages metadata objects and their types | 19.0.1.0.0 |
