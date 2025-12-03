@@ -21,6 +21,11 @@ msgid "Activate"
 msgstr "Активировать"
 
 #: views\test_case_views.xml
+#: views\test_case_views.xml
+msgid "Analyze Playwright Dependencies"
+msgstr "Анализ зависимостей драматурга"
+
+#: views\test_case_views.xml
 msgid "Analyze and Build Hierarchy"
 msgstr "Анализируйте и стройте иерархию"
 

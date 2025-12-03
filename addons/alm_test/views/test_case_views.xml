@@ -62,6 +62,12 @@
                                 </div>
                                 <field name="playwright_script_filename" readonly="1"/>
                             </group>
+                            <div class="o_action_box">
+                                <button name="action_analyze_playwright_deps"
+                                        type="object"
+                                        string="Analyze Playwright Dependencies"
+                                        class="btn-primary"/>
+                            </div>
                             <field name="playwright_script" widget="ace" options="{'mode': 'python'}"/>
                         </page>
                         <page string="Scenarios" name="scenarios_page" invisible="test_framework != 'gherkin_vanessa'">
@@ -98,11 +104,17 @@
                             </group>
                         </page>
                         <page string="Hierarchy" name="tab_hierarchy">
-                            <div class="o_action_box" invisible="test_framework != 'gherkin_vanessa'">
+                            <div class="o_action_box" invisible="test_framework not in ['gherkin_vanessa', 'playwright']">
                                 <button name="action_analyze_hierarchy"
                                         type="object"
                                         string="Analyze and Build Hierarchy"
-                                        class="btn-primary"/>
+                                        class="btn-primary"
+                                        invisible="test_framework != 'gherkin_vanessa'"/>
+                                <button name="action_analyze_playwright_deps"
+                                        type="object"
+                                        string="Analyze Playwright Dependencies"
+                                        class="btn-primary"
+                                        invisible="test_framework != 'playwright'"/>
                             </div>
                             <group>
                                 <group>

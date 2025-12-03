@@ -1,6 +1,6 @@
 {
     'name': 'ALM Test',
-    'version': '19.0.1.0.0',
+    'version': '19.0.1.0.1',
     'category': 'ALM',
     'summary': 'Module for managing test cases, test suites, and their execution.',
     'description': """

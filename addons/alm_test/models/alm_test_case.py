@@ -5,6 +5,8 @@ import urllib.parse
 import logging
 import re
 from lxml import etree
+import ast
+from odoo.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
 
@@ -577,3 +579,106 @@ class TestCase(models.Model):
         for case in self:
             case._analyze_and_build_hierarchy()
         return True
+
+class AlmTestCase(models.Model):
+    _inherit = 'alm.test.case'
+
+    def _parse_playwright_dependencies(self, test_code):
+        try:
+
+            tree = ast.parse(test_code)
+            fixtures_used = set()
+
+            for node in ast.walk(tree):
+                if isinstance(node, ast.FunctionDef):
+                    for i, arg in enumerate(node.args.args):
+                        fixtures_used.add(arg.arg)
+
+            return list(fixtures_used)
+
+        except Exception as e:
+            _logger.error("PARSE ERROR: %s", e)
+            _logger.error("Test code: %s", test_code[:500])
+            return []
+
+    def _parse_fixtures_provided(self, test_code):
+        try:
+            tree = ast.parse(test_code)
+            fixtures_provided = set()
+
+            for node in ast.walk(tree):
+                if isinstance(node, ast.FunctionDef):
+                    for decorator in node.decorator_list:
+                        decorator_str = ast.dump(decorator)
+                        _logger.info("Function %s has decorator: %s", node.name, decorator_str)
+
+                        if ('fixture' in decorator_str or
+                            (isinstance(decorator, ast.Attribute) and decorator.attr == 'fixture')):
+                            fixtures_provided.add(node.name)
+                            _logger.info("  -> Found fixture: %s", node.name)
+
+            _logger.info("Final fixtures_provided: %s", fixtures_provided)
+            return list(fixtures_provided)
+
+        except Exception as e:
+            _logger.error("Parse fixtures error: %s", e)
+            return []
+
+    def _find_provider_tests(self, fixture_name):
+        provider_tests = self.env['alm.test.case']
+
+        library_tests = self.search([])
+
+        for test in library_tests:
+            if not test.playwright_script:
+                continue
+
+            fixtures_provided = self._parse_fixtures_provided(test.playwright_script)
+            if fixture_name in fixtures_provided:
+                provider_tests |= test
+
+        return provider_tests
+
+    def action_analyze_playwright_deps(self):
+        self.ensure_one()
+
+        if self.test_framework != 'playwright':
+            raise UserError("This only Playwright tests")
+
+        if not self.playwright_script:
+            raise UserError("Not Playwright scripts")
+
+        fixtures_used = self._parse_playwright_dependencies(self.playwright_script)
+        _logger.info("Found fixtures used: %s", fixtures_used)
+
+        provider_tests = self.env['alm.test.case']
+        for fixture in fixtures_used:
+            providers = self._find_provider_tests(fixture)
+            _logger.info("Fixture '%s' provided by: %s", fixture, providers.mapped('name'))
+            provider_tests |= providers
+
+        if provider_tests:
+            self.includes_ids = [(6, 0, provider_tests.ids)]
+            message = f'Dependencies found: {len(provider_tests)}'
+        else:
+            message = 'Dependencies not found. Make sure the library tests are loaded..'
+
+        _logger.info("Analysis result: %s", message)
+
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'reload',
+            'params': {
+                'title': 'Finished',
+                'message': message,
+                'type': 'success' if provider_tests else 'warning',
+                'sticky': False,
+                'next': {
+                    'type': 'ir.actions.act_window',
+                    'res_model': self._name,
+                    'res_id': self.id,
+                    'views': [[False, 'form']],
+                    'target': 'current',
+                }
+            }
+        }
