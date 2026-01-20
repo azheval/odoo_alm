@@ -10,7 +10,7 @@
                 <field name="name"/>
                 <field name="process_id"/>
                 <field name="application_id" column_invisible="True"/>
-                <field name="responsible_role_id"/>
+                <field name="responsible_role_ids"/>
             </list>
         </field>
     </record>
@@ -46,7 +46,7 @@
                             <field name="sequence"/>
                         </group>
                         <group>
-                            <field name="responsible_role_id"/>
+                            <field name="responsible_role_ids" widget="many2many_tags"/>
                         </group>
                     </group>
                     <notebook>

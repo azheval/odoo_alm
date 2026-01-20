@@ -27,11 +27,14 @@ class AlmProcessFunction(models.Model):
 
     sequence = fields.Integer(string='Sequence', default=10, help="Order of execution within the process.")
 
-    responsible_role_id = fields.Many2one(
+    responsible_role_ids = fields.Many2many(
         'alm.metadata.object',
-        string='Responsible Role',
+        relation='alm_process_function_responsible_role_rel',
+        column1='function_id',
+        column2='role_id',
+        string='Responsible Roles',
         domain="[('type_id.technical_name', '=', 'Role')]",
-        help="The role responsible for executing this function/step.",
+        help="The roles responsible for executing this function/step.",
         tracking=True,
     )
 

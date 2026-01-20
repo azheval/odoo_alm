@@ -1,6 +1,6 @@
 {
     'name': 'ALM Data Flow',
-    'version': '19.0.1.0.1',
+    'version': '19.0.1.0.2',
     'summary': 'Models and manages data flows and integrations within ALM.',
     'description': """
         This module provides models for defining and managing data flows,

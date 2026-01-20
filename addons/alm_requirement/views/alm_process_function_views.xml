@@ -5,7 +5,7 @@
         <field name="model">alm.process.function</field>
         <field name="inherit_id" ref="alm_data_flow.view_alm_process_function_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='responsible_role_id']" position="after">
+            <xpath expr="//field[@name='responsible_role_ids']" position="after">
                 <field name="requirement_ids" widget="many2many_tags"/>
             </xpath>
         </field>

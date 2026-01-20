@@ -1,6 +1,6 @@
 {
     'name': 'ALM Requirement',
-    'version': '19.0.1.0.0',
+    'version': '19.0.1.0.2',
     'summary': 'Module for managing application requirements.',
         'description': """
         Module managing application requirements for the ALM application.

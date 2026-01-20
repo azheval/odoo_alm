@@ -12,8 +12,8 @@
 | ALM Project | Integrates ALM entities with Odoo Project and Task management | 19.0.1.0.0 |
 | ALM Bug Tracker | A bug tracking system for ALM | 19.0.1.0.2 |
 | ALM Diagramming | Provides diagramming capabilities for ALM models using embedded Draw.io. | 19.0.1.0.1 |
-| ALM Data Flow | Models and manages data flows and integrations within ALM. | 19.0.1.0.1 |
-| ALM Requirement | Module for managing application requirements. | 19.0.1.0.0 |
+| ALM Data Flow | Models and manages data flows and integrations within ALM. | 19.0.1.0.2 |
+| ALM Requirement | Module for managing application requirements. | 19.0.1.0.1 |
 | ALM Test | Module for managing test cases, test suites, and their execution. | 19.0.1.0.1 |
 
 [User Guide](/docs/UserGuide/Guide.md)
