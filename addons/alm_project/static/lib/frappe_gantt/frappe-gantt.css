@@ -1,0 +1,172 @@
+/* единый белый фон для всего холста */
+.gantt .grid-header,
+.gantt .grid-row,
+.gantt .grid-row:nth-child(even) {
+    fill: #ffffff !important; /* Убирает зебру и делает фон белым */
+}
+
+/* линии сетки, чтобы они не были черными */
+.gantt .grid-header,
+.gantt .grid-row,
+.gantt .row-line,
+.gantt .tick {
+    stroke: #f0f0f0 !important; /* Светло-серый цвет линий */
+    stroke-width: 1px !important;
+}
+
+.gantt .grid-header { fill: #ffffff !important; }
+
+/* Визуализация прогресса */
+.gantt .bar {
+    fill: #7c7bad !important; /* Основной цвет задачи */
+    rx: 3; ry: 3;
+}
+.gantt .bar-progress {
+    fill: #00a09d !important; /* Цвет прогресса (бирюзовый) */
+}
+
+/* Настройка "ручек" для изменения длительности */
+.gantt .handle {
+    fill: #ff9800 !important; /* Оранжевый для ручек захвата */
+    cursor: ew-resize;
+    opacity: 0.7 !important;
+}
+
+/* видимость стрелок (связей) */
+.gantt .arrow {
+    fill: none !important;
+    stroke: #ff9800 !important; /* Оранжевый для связей */
+    stroke-width: 2px !important;
+    opacity: 1 !important;
+}
+
+.gantt .bar-wrapper:hover .handle {
+    opacity: 1 !important;
+}
+
+.gantt .bar-label {
+    fill: #333 !important;
+    font-size: 11px !important;
+}
+
+/* Контейнер */
+.gantt-scroll-wrapper {
+    /* width: 100%; */
+    overflow: auto !important;
+    height: calc(100vh - 120px);
+    border: 1px solid #ddd;
+}
+
+/* Линия текущего дня */
+.gantt .today-highlight {
+    stroke: #ff9800 !important; /* Цвет */
+    stroke-width: 2px !important; /* Толщина */
+    stroke-dasharray: 5, 5 !important;
+    opacity: 0.2 !important; /* Прозрачность, чтобы не перекрывала задачи */
+}
+
+/* Контейнер расшифровки */
+.gantt-container .details-container {
+    position: absolute;
+    background: #ffffff !important;
+    border: 2px solid #7c7bad !important; /* Толстая фиолетовая рамка */
+    border-radius: 6px !important;
+    padding: 0 !important; /* Убираем стандартные падинги для заголовка */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+    color: #333 !important;
+    min-width: 250px;
+}
+
+/* скрытые попапы не занимают место */
+.details-container.hide {
+    display: none !important;
+}
+
+/* Заголовок карточки */
+.alm-task-popup .popup-header {
+    background: #7c7bad;
+    color: white;
+    padding: 8px 12px;
+    font-weight: bold;
+    font-size: 13px;
+    border-radius: 4px 4px 0 0;
+}
+
+/* Содержимое */
+.alm-task-popup .popup-content {
+    padding: 10px 12px;
+}
+
+/* Строки с полями */
+.alm-task-popup .popup-row {
+    font-size: 12px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 2px;
+}
+
+.alm-task-popup .popup-row:last-child {
+    border-bottom: none;
+}
+
+.alm-task-popup {
+    background: #fff;
+    min-width: 280px;
+}
+
+.popup-divider {
+    height: 1px;
+    background: #e9ecef;
+    margin: 10px 0;
+}
+
+.popup-section {
+    padding: 2px 0;
+}
+
+/* Стили аватаров */
+.popup-avatars-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.popup-avatar-item {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 3px 8px;
+    border-radius: 15px;
+    font-size: 11px;
+    border: 1px solid #dee2e6;
+}
+
+.popup-avatar-item img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+/* полоса прогресса в попапе */
+.popup-progress-bar {
+    height: 6px;
+    background: #eee;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.popup-progress-bar div {
+    height: 100%;
+    background: #7c7bad;
+}
+
+.popup-links a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.popup-links a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,29 @@
+<t t-name="alm_project.TimelineView" owl="1">
+    <div class="o_action o_view_controller d-flex flex-column bg-light" style="height: 100vh;">
+        <div class="o_control_panel border-bottom px-3 py-2 bg-white d-flex justify-content-between">
+            <div class="d-flex gap-2">
+                <div class="btn-group btn-group-sm">
+                    <button class="btn btn-outline-secondary" t-on-click="() => this.changeMode('Day')">Day</button>
+                    <button class="btn btn-outline-secondary" t-on-click="() => this.changeMode('Week')">Week</button>
+                    <button class="btn btn-outline-secondary" t-on-click="() => this.changeMode('Month')">Month</button>
+                </div>
+                <input type="text" class="form-control form-control-sm" placeholder="Search..." t-on-input="onSearchInput" style="width: 150px;"/>
+            </div>
+            <div class="d-flex align-items-center gap-2 small">
+                Group By:
+                <select class="form-select form-select-sm" t-on-change="onGroupChange" style="width: 140px;">
+                    <option value="none">Without Grouping</option>
+                    <option value="project_id">By Projects</option>
+                    <option value="user_ids">By Assignees</option>
+                    <option value="unit">By Configurable units</option>
+                    <option value="requirement">By Requirements</option>
+                </select>
+            </div>
+        </div>
+        <div class="p-3 flex-grow-1 overflow-hidden">
+            <div class="gantt-scroll-wrapper">
+                <svg t-ref="gantt_canvas"></svg>
+            </div>
+        </div>
+    </div>
+</t>

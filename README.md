@@ -9,7 +9,7 @@
 | ALM Base | Base models for ALM application | 19.0.1.0.2 |
 | ALM Theme | Custom theme for the ALM application. | 19.0.1.0.0 |
 | ALM Metadata | Manages metadata objects and their types | 19.0.1.0.0 |
-| ALM Project | Integrates ALM entities with Odoo Project and Task management | 19.0.1.0.0 |
+| ALM Project | Integrates ALM entities with Odoo Project and Task management | 19.0.2.0.0 |
 | ALM Bug Tracker | A bug tracking system for ALM | 19.0.1.0.2 |
 | ALM Diagramming | Provides diagramming capabilities for ALM models using embedded Draw.io. | 19.0.1.0.1 |
 | ALM Data Flow | Models and manages data flows and integrations within ALM. | 19.0.1.0.2 |

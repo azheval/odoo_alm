@@ -16,6 +16,50 @@ msgstr ""
 "Language: be\n"
 "X-Generator: Smart Translation Helper\n"
 
+#: static\src\xml\timeline_view.xml
+msgid "By Assignees"
+msgstr "Праваступнікі"
+
+#: static\src\xml\timeline_view.xml
+msgid "By Configurable units"
+msgstr "Па наладжвальных адзінках"
+
+#: static\src\xml\timeline_view.xml
+msgid "By Projects"
+msgstr "Па праектах"
+
+#: static\src\xml\timeline_view.xml
+msgid "By Requirements"
+msgstr "Па патрабаванням"
+
+#: static\src\xml\timeline_view.xml
+msgid "Day"
+msgstr "Дзень"
+
+#: views\project_task_views.xml
+msgid "Dependencies"
+msgstr "Залежнасці"
+
+#: static\src\xml\timeline_view.xml
+msgid "Group By:"
+msgstr "Групаваць па:"
+
+#: static\src\xml\timeline_view.xml
+msgid "Month"
+msgstr "Месяц"
+
+#: views\project_task_views.xml
+msgid "Planning &amp; Timeline"
+msgstr "Планаванне і графік"
+
+#: views\project_task_views.xml
+msgid "Project Timeline"
+msgstr "Храналогія праекта"
+
+#: static\src\xml\timeline_view.xml
+msgid "Search..."
+msgstr "Пошук..."
+
 #: views\project_task_views.xml
 msgid "Select a configurable unit from project"
 msgstr "Выберыце наладжвальны блок з праекта"
@@ -23,6 +67,22 @@ msgstr "Выберыце наладжвальны блок з праекта"
 #: views\project_task_views.xml
 msgid "Select a version for the chosen configurable unit"
 msgstr "Выберыце версію для абранага наладжвальнага блока"
+
+#: views\project_task_views.xml
+msgid "Timeframe"
+msgstr "Часовыя рамкі"
+
+#: static\src\xml\timeline_view.xml
+msgid "Week"
+msgstr "Тыдзень"
+
+#: static\src\xml\timeline_view.xml
+msgid "Without Grouping"
+msgstr "Без групоўкі"
+
+#: views\project_task_views.xml
+msgid "alm_project.timeline_tag"
+msgstr "alm_project.timeline_tag"
 
 #: views\project_project_views.xml
 msgid "project.project"

@@ -1,6 +1,6 @@
 {
     'name': 'ALM Project',
-    'version': '19.0.1.0.0',
+    'version': '19.0.2.0.0',
     'summary': 'Integrates ALM entities with Odoo Project and Task management',
     'description': """
         This module extends Odoo's project and task management functionalities
@@ -26,6 +26,14 @@
         'views/project_project_views.xml',
         'views/project_menu_extension_views.xml',
     ],
+    'assets': {
+        'web.assets_backend': [
+            'alm_project/static/lib/frappe_gantt/frappe-gantt.css',
+            'alm_project/static/lib/frappe_gantt/frappe-gantt.min.js',
+            'alm_project/static/src/js/timeline_view.js',
+            'alm_project/static/src/xml/timeline_view.xml',
+        ],
+    },
     'installable': True,
     'application': False,
     'auto_install': False,

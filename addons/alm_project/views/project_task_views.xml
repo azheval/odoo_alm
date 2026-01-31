@@ -6,11 +6,39 @@
         <field name="inherit_id" ref="project.view_task_form2"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='project_id']" position="after">
-                <field name="configurable_unit_id" 
+                <field name="configurable_unit_id"
                     placeholder="Select a configurable unit from project"/>
                 <field name="configurable_unit_version_id"
-                      placeholder="Select a version for the chosen configurable unit"/>
+                        placeholder="Select a version for the chosen configurable unit"/>
+            </xpath>
+
+            <xpath expr="//notebook" position="inside">
+                <page string="Planning &amp; Timeline" name="planning_alm">
+                    <group>
+                        <group name="dates" string="Timeframe">
+                            <field name="planned_date_begin" widget="datetime"/>
+                            <field name="planned_date_end" widget="datetime"/>
+                        </group>
+                        <group name="links" string="Dependencies">
+                            <field name="predecessor_ids"
+                                widget="many2many_tags"
+                                domain="[('project_id', '=', project_id), ('id', '!=', id)]"
+                                options="{'no_create': True}"/>
+                        </group>
+                    </group>
+                </page>
             </xpath>
         </field>
     </record>
+
+    <record id="action_alm_timeline_view" model="ir.actions.client">
+        <field name="name">Project Timeline</field>
+        <field name="tag">alm_project.timeline_tag</field>
+    </record>
+
+    <menuitem id="menu_project_timeline_action"
+            name="Timeline Planner"
+            parent="project.menu_main_pm"
+            action="action_alm_timeline_view"
+            sequence="25"/>
 </odoo>

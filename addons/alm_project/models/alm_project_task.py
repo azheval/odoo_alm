@@ -26,6 +26,24 @@ class ProjectTask(models.Model):
         compute='_compute_available_configurable_units'
     )
 
+    planned_date_begin = fields.Datetime(
+        string='Start Date',
+        help='Date when the work on the task is planned to begin'
+    )
+    planned_date_end = fields.Datetime(
+        string='End Date',
+        help='Date when the work on the task is planned to end'
+    )
+
+    predecessor_ids = fields.Many2many(
+        'project.task', 
+        'project_task_dependency_rel',
+        'task_id',
+        'predecessor_id',
+        string='Predecessors',
+        help='Tasks that must be completed before this task can begin'
+    )
+
     @api.depends('project_id.configurable_unit_ids')
     def _compute_available_configurable_units(self):
         for task in self:

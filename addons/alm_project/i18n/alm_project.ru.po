@@ -16,6 +16,50 @@ msgstr ""
 "Language: ru\n"
 "X-Generator: Smart Translation Helper\n"
 
+#: static\src\xml\timeline_view.xml
+msgid "By Assignees"
+msgstr "По правопреемникам"
+
+#: static\src\xml\timeline_view.xml
+msgid "By Configurable units"
+msgstr "По настраиваемым единицам"
+
+#: static\src\xml\timeline_view.xml
+msgid "By Projects"
+msgstr "По проектам"
+
+#: static\src\xml\timeline_view.xml
+msgid "By Requirements"
+msgstr "По требованиям"
+
+#: static\src\xml\timeline_view.xml
+msgid "Day"
+msgstr "День"
+
+#: views\project_task_views.xml
+msgid "Dependencies"
+msgstr "Зависимости"
+
+#: static\src\xml\timeline_view.xml
+msgid "Group By:"
+msgstr "Группировать по:"
+
+#: static\src\xml\timeline_view.xml
+msgid "Month"
+msgstr "Месяц"
+
+#: views\project_task_views.xml
+msgid "Planning &amp; Timeline"
+msgstr "Планирование и сроки"
+
+#: views\project_task_views.xml
+msgid "Project Timeline"
+msgstr "График реализации проекта"
+
+#: static\src\xml\timeline_view.xml
+msgid "Search..."
+msgstr "Поиск..."
+
 #: views\project_task_views.xml
 msgid "Select a configurable unit from project"
 msgstr "Выберите настраиваемый блок из проекта"
@@ -23,6 +67,22 @@ msgstr "Выберите настраиваемый блок из проекта
 #: views\project_task_views.xml
 msgid "Select a version for the chosen configurable unit"
 msgstr "Выберите версию для выбранного настраиваемого устройства"
+
+#: views\project_task_views.xml
+msgid "Timeframe"
+msgstr "Временные рамки"
+
+#: static\src\xml\timeline_view.xml
+msgid "Week"
+msgstr "Неделя"
+
+#: static\src\xml\timeline_view.xml
+msgid "Without Grouping"
+msgstr "Без группировки"
+
+#: views\project_task_views.xml
+msgid "alm_project.timeline_tag"
+msgstr "alm_project.timeline_tag"
 
 #: views\project_project_views.xml
 msgid "project.project"
